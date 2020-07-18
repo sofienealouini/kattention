@@ -5,15 +5,18 @@ class SelfAttention(Layer):
 
     def __init__(self, **kwargs):
         super(SelfAttention, self).__init__(**kwargs)
+        self.dense_q = None
+        self.dense_k = None
+        self.dense_v = None
         self.dot_context = Dot(axes=(2, 2))
         self.normalize = Softmax()
         self.reweight_v = Dot(axes=(2, 1))
 
     def build(self, input_shape):
-        self.embedding_size = input_shape[-1]
-        self.dense_q = Dense(units=self.embedding_size, activation='linear')
-        self.dense_k = Dense(units=self.embedding_size, activation='linear')
-        self.dense_v = Dense(units=self.embedding_size, activation='linear')
+        embedding_size = input_shape[-1]
+        self.dense_q = Dense(units=embedding_size, activation='linear')
+        self.dense_k = Dense(units=embedding_size, activation='linear')
+        self.dense_v = Dense(units=embedding_size, activation='linear')
 
     def call(self, inputs, **kwargs):
         queries = self.dense_q(inputs)
