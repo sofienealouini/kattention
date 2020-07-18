@@ -5,7 +5,7 @@ with open('README.md', 'r') as description_file:
 
 setuptools.setup(
     name='kattention',
-    version='0.1.0',
+    version='0.1.1',
     author='Sofiene ALOUINI',
     author_email='sofiene.alouini@gmail.com',
     description='Package implementing different attention mechanisms as tf.keras layers',
