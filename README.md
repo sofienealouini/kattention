@@ -15,13 +15,14 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Flatten, Dense, Softmax
 from kattention.layers import MultiHeadAttention 
 
-SEQUENCE_LENGTH = 20
+SEQUENCE_LENGTH = 4
 EMBEDDING_SIZE = 300
-CLASSES_TO_PREDICT = 4
+CLASSES_TO_PREDICT = 5
+ATT_HEADS = 2
 
 model = Sequential()
-model.add(MultiHeadAttention(heads=5, input_shape=(SEQUENCE_LENGTH, EMBEDDING_SIZE)))
-model.add(MultiHeadAttention(heads=5))
+model.add(MultiHeadAttention(heads=ATT_HEADS, input_shape=(SEQUENCE_LENGTH, EMBEDDING_SIZE)))
+model.add(MultiHeadAttention(heads=ATT_HEADS))
 model.add(Flatten())
 model.add(Dense(CLASSES_TO_PREDICT))
 model.add(Softmax())
