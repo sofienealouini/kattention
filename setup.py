@@ -5,14 +5,14 @@ with open('README.md', 'r') as description_file:
 
 setuptools.setup(
     name='kattention',
-    version='0.1.1',
+    version='0.1.2',
     author='Sofiene ALOUINI',
     author_email='sofiene.alouini@gmail.com',
     description='Package implementing different attention mechanisms as tf.keras layers',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/sofienealouini/kattention',
-    python_requires='>=3.7',
+    python_requires='>=3.6',
     install_requires=['tensorflow>=2.2'],
     packages=setuptools.find_packages(),
     classifiers=[
